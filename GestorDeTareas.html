@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de tareas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 50%;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            text-align: center;
+        }
+        form {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+        input, textarea, select, button {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Gestor de Tareas</h1>
+
+        <h2>Bienvenido, Admin</h2>
+
+        <h3>Registrar Nueva Tarea</h3>
+        <form id="formularioTareas">
+            <input type="text" id="codigoTarea" placeholder="Código de la tarea" required>
+            <input type="text" id="tituloTarea" placeholder="Título" required>
+            <textarea id="descripcionTarea" placeholder="Descripción" required></textarea>
+            <input type="date" id="fechaTarea" required>
+            <input type="text" id="nombreCliente" placeholder="Nombre del cliente" required>
+            <input type="text" id="idProyecto" placeholder="ID del proyecto" required>
+            <textarea id="comentarios" placeholder="Comentarios"></textarea>
+            <button type="submit">Agregar Tarea</button>
+        </form>
+
+        <h3>Tareas Registradas</h3>
+        <label for="filtroEstatus">Filtrar por estatus:</label>
+        <select id="filtroEstatus">
+            <option value="Todos">Todos</option>
+            <option value="Pendiente">Pendiente</option>
+            <option value="En progreso">En progreso</option>
+            <option value="Rechazado">Rechazado</option>
+            <option value="Cancelado">Cancelado</option>
+            <option value="Cerrado">Cerrado</option>
+            <option value="En pruebas de calidad">En pruebas de calidad</option>
+            <option value="En validación por el usuario">En validación por el usuario</option>
+            <option value="En proceso de liberación">En proceso de liberación</option>
+        </select>
+        <button id="aplicarFiltro">Aplicar Filtro</button>
+
+        <table id="tablaTareas">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Título</th>
+                    <th>Descripción</th>
+                    <th>Fecha Inicio</th>
+                    <th>Cliente</th>
+                    <th>ID Proyecto</th>
+                    <th>Comentarios</th>
+                    <th>Estatus</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <h3>Detalles de la Tarea</h3>
+        <form id="formularioTarea">
+            <p>ID: <span id="idTarea"></span></p>
+            <p>Título: <span id="tareaTitulo"></span></p>
+            <label for="estatusTarea">Estatus:</label>
+            <select id="estatusTarea">
+                <option value="En progreso">En progreso</option>
+                <option value="Rechazado">Rechazado</option>
+                <option value="Cancelado">Cancelado</option>
+                <option value="Cerrado">Cerrado</option>
+                <option value="En pruebas de calidad">En pruebas de calidad</option>
+                <option value="En validación por el usuario">En validación por el usuario</option>
+                <option value="En proceso de liberación">En proceso de liberación</option>
+            </select>
+            <br><br>
+            <label for="comentariosTarea">Comentarios:</label><br>
+            <textarea id="comentariosTarea" rows="4" cols="50"></textarea>
+            <br><br>
+            <button type="button" id="actualizarTarea">Actualizar Tarea</button>
+        </form>
+
+        
+    </div>
+
+    <script src="PruebaGestorDeTareas.js"></script>
+</body>
+</html>
